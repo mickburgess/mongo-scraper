@@ -8,7 +8,7 @@ var request = require("request");
 var cheerio = require("cheerio");
 
 // Require all models
-var db = require("./models");
+// var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
 
@@ -33,6 +33,16 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
+
+var dbConnect = mongoose.connection;
+
+dbConnect.on("error", function(err) {
+  console.log("Mongoose Error: ", err);
+});
+
+dbConnect.once("open", function() {
+  console.log("Mongoose connection successful.");
+});
 
 // // Routes
 
