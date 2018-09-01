@@ -8,7 +8,7 @@ var request = require("request");
 var cheerio = require("cheerio");
 
 // Require all models
-// var db = require("./models");
+var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
 
@@ -44,8 +44,9 @@ dbConnect.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
-// // Routes
+// Routes
 
+require("./routes/articleRoutes")(app, request, cheerio, db);
 // // A GET route for scraping the echoJS website
 // app.get("/scrape", function(req, res) {
 //   // First, we grab the body of the html with request
