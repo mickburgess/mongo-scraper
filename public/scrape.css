@@ -1,0 +1,8 @@
+body {
+  background-color: #ffffff;
+}
+
+.jumbotron {
+  background-image: url(./images/news.jpg);
+  background-color: white;
+}
