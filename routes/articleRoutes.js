@@ -20,7 +20,7 @@ module.exports = function (app, request, cheerio, db) {
           })
           .catch(function (err) {
             // If an error occurred, send it to the client
-            console.log(err);
+            return err;
           });
       });
        // If we were able to successfully scrape and save an Article, send a message to the client
